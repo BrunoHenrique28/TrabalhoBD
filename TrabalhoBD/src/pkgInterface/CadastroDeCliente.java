@@ -9,12 +9,12 @@ package pkgInterface;
  *
  * @author tomaz
  */
-public class CadastroCliente extends javax.swing.JFrame {
+public class CadastroDeCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroDeCliente
      */
-    public CadastroCliente() {
+    public CadastroDeCliente() {
         initComponents();
     }
 
@@ -386,7 +386,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCliente().setVisible(true);
+                new CadastroDeCliente().setVisible(true);
             }
         });
     }
