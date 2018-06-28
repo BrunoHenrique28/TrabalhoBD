@@ -5,17 +5,30 @@
  */
 package pkgInterface;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import util.ConexaoBD;
+
 /**
  *
  * @author tomaz
  */
 public class CadastroDeCliente extends javax.swing.JFrame {
-
-    /**
-     * Creates new form CadastroDeCliente
-     */
+    
+    private Connection conexao = null;
+    private PreparedStatement pst = null;
+    private ResultSet result = null;
+    
     public CadastroDeCliente() {
         initComponents();
+        try{
+            conexao = ConexaoBD.conectaBD();
+        } catch(ClassNotFoundException e){
+            System.out.println("Classe não encontrada !");
+        }
     }
 
     /**
@@ -49,7 +62,7 @@ public class CadastroDeCliente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cmbEstado = new javax.swing.JComboBox<>();
-        edtBairro1 = new javax.swing.JTextField();
+        edtNumero = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -69,24 +82,6 @@ public class CadastroDeCliente extends javax.swing.JFrame {
         jLabel3.setText("CPF");
 
         jLabel4.setText("RG");
-
-        edtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCpfActionPerformed(evt);
-            }
-        });
-
-        edtRG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtRGActionPerformed(evt);
-            }
-        });
-
-        edtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtTelefoneActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Telefone");
 
@@ -149,35 +144,11 @@ public class CadastroDeCliente extends javax.swing.JFrame {
 
         jLabel8.setText("Cidade");
 
-        edtCep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCepActionPerformed(evt);
-            }
-        });
-
-        edtCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCidadeActionPerformed(evt);
-            }
-        });
-
-        edtBairro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtBairroActionPerformed(evt);
-            }
-        });
-
         jLabel9.setText("Bairro");
 
         jLabel10.setText("Estado");
 
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
-
-        edtBairro1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtBairro1ActionPerformed(evt);
-            }
-        });
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
 
         jLabel11.setText("Número");
 
@@ -192,21 +163,20 @@ public class CadastroDeCliente extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(edtRua)
                     .addComponent(edtCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtBairro1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(edtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(105, 105, 105))
-                    .addComponent(cmbEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -223,24 +193,20 @@ public class CadastroDeCliente extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(edtBairro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(33, 33, 33)))
+                            .addComponent(edtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel10)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -316,34 +282,6 @@ public class CadastroDeCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void edtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCpfActionPerformed
-
-    private void edtRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtRGActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtRGActionPerformed
-
-    private void edtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtTelefoneActionPerformed
-
-    private void edtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCepActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCepActionPerformed
-
-    private void edtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCidadeActionPerformed
-
-    private void edtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtBairroActionPerformed
-
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimparActionPerformed
@@ -352,13 +290,37 @@ public class CadastroDeCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void edtBairro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtBairro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtBairro1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        cadastrar();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+    
+    private void cadastrar(){
+        String sql = "INSERT INTO CLIENTE(nome,cpf,rg,telefone,endereco) VALUES (?,?,?,?,?)";
+        int cadastro = 0;
+        try{
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, edtNome.getText());
+            pst.setString(2, edtCpf.getText());
+            pst.setString(3, edtRG.getText());
+            pst.setString(4, edtTelefone.getText());
+            String endereco = "";
+            endereco = endereco.concat(edtRua.getText()+", "+edtNumero.getText()+", "+edtBairro.getText()+", "+edtCidade.getText()
+                                        +", "+edtCep.getText()+", "+(String)cmbEstado.getSelectedItem());
+            pst.setString(5, endereco);
+            cadastro = pst.executeUpdate();
+            if(cadastro > 0){
+                JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO COM SUCESSO !","Info",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR CLIENTE !","Info",JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR CLIENTE", "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -397,11 +359,11 @@ public class CadastroDeCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JTextField edtBairro;
-    private javax.swing.JTextField edtBairro1;
     private javax.swing.JTextField edtCep;
     private javax.swing.JTextField edtCidade;
     private javax.swing.JTextField edtCpf;
     private javax.swing.JTextField edtNome;
+    private javax.swing.JTextField edtNumero;
     private javax.swing.JTextField edtRG;
     private javax.swing.JTextField edtRua;
     private javax.swing.JTextField edtTelefone;
