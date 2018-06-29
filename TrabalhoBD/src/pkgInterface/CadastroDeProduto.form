@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -111,42 +111,40 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel11" max="32767" attributes="0"/>
-                                  <Component id="edtBairro1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="edtBairro2" min="-2" pref="104" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" min="-2" pref="104" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="edtCep" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="edtCep1" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="edtNome" alignment="0" min="-2" pref="356" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="edtDescricao" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="edtValorCusto" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="edtLucro" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" min="-2" pref="104" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="spinnerEstoqueMinimo" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                          <Component id="spinnerEstoqueMaximo" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="122" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel3" max="32767" attributes="0"/>
-                                  <Component id="edtCpf" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -154,42 +152,28 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="1" min="-2" pref="17" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtNome" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="edtCpf" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Component id="edtDescricao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="edtCep" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="edtBairro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edtValorCusto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="edtBairro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edtLucro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="edtCep1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="spinnerEstoqueMinimo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="spinnerEstoqueMaximo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -203,27 +187,14 @@
                 <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="C&#xf3;digo do produto"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="edtNome">
-            </Component>
-            <Component class="javax.swing.JTextField" name="edtCpf">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtCpfActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="edtDescricao">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pre&#xe7;o de custo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtBairro1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtBairro1ActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="edtValorCusto">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -235,15 +206,7 @@
                 <Property name="text" type="java.lang.String" value="Lucro %"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtBairro2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtBairro2ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="edtCep">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtCepActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="edtLucro">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -255,10 +218,15 @@
                 <Property name="text" type="java.lang.String" value="Estoque m&#xe1;ximo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtCep1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtCep1ActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JSpinner" name="spinnerEstoqueMinimo">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinnerEstoqueMinimo.setModel(new SpinnerNumberModel(0,0,200,1));&#xa;JSpinner.NumberEditor jsEditor = (JSpinner.NumberEditor)spinnerEstoqueMinimo.getEditor();&#xa;DefaultFormatter formatter = (DefaultFormatter) jsEditor.getTextField().getFormatter();&#xa;formatter.setAllowsInvalid(false);&#xa;spinnerEstoqueMinimo.addChangeListener(new ChangeListener() {&#xa;            @Override&#xa;            public void stateChanged(ChangeEvent e) {&#xa;            int EMax = Integer.parseInt(spinnerEstoqueMaximo.getValue().toString());&#xa;            int EMin = Integer.parseInt(spinnerEstoqueMinimo.getValue().toString());&#xa;            if(EMin &gt; EMax)&#xa;                    spinnerEstoqueMaximo.setValue(spinnerEstoqueMinimo.getValue());&#xa;            }&#xa;        });"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spinnerEstoqueMaximo">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinnerEstoqueMaximo = new javax.swing.JSpinner();&#xa;spinnerEstoqueMaximo.setModel(new SpinnerNumberModel(0,0,200,1));&#xa;JSpinner.NumberEditor jsEditor1 = (JSpinner.NumberEditor)spinnerEstoqueMaximo.getEditor();&#xa;DefaultFormatter formatter1 = (DefaultFormatter) jsEditor1.getTextField().getFormatter();&#xa;formatter1.setAllowsInvalid(false);&#xa;&#xa;spinnerEstoqueMaximo.addChangeListener(new ChangeListener() {&#xa;            @Override&#xa;            public void stateChanged(ChangeEvent e) {&#xa;            int EMax = Integer.parseInt(spinnerEstoqueMaximo.getValue().toString());&#xa;            int EMin = Integer.parseInt(spinnerEstoqueMinimo.getValue().toString());&#xa;            if(EMin &gt; EMax)&#xa;                    spinnerEstoqueMinimo.setValue(spinnerEstoqueMaximo.getValue());&#xa;            }&#xa;        });"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -278,12 +246,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="387" max="-2" attributes="0"/>
+                          <Component id="cmbFornecedor" min="-2" pref="387" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel9" max="32767" attributes="0"/>
-                          <Component id="edtBairro" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="edtCodigoFornecedor" pref="100" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
@@ -297,12 +268,12 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbFornecedor" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtBairro" min="-2" max="-2" attributes="0"/>
+                              <Component id="edtCodigoFornecedor" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -315,25 +286,26 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtBairro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtBairroActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="edtCodigoFornecedor">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo do fornecedor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cmbFornecedor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="Selecione"/>
+                    <StringItem index="0" value="Selecione um fornecedor"/>
                   </StringArray>
                 </Property>
               </Properties>
               <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cmbFornecedor.addItemListener(new ItemListener() {&#xa;                @Override&#xa;                public void itemStateChanged(ItemEvent e) {&#xa;                    &#xa;                    if(cmbFornecedor.getSelectedIndex() == 0)&#xa;                        edtCodigoFornecedor.setText(&quot;&quot;);&#xa;                    else{&#xa;                        int codigo = -1;&#xa;                        for(Fornecedor f : fornecedores){&#xa;                            if(f.getNome().equals((String)cmbFornecedor.getSelectedItem()))&#xa;                                codigo = f.getCodigo();&#xa;                        }&#xa;                        edtCodigoFornecedor.setText(&quot;&quot;+codigo);&#xa;                    }&#xa;                    &#xa;                }&#xa;            });"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
@@ -379,24 +351,22 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="edtRua2" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="edtIcms" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="edtRua3" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="edtIpi" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="edtBairro3" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="edtOutrosImpostos" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -409,18 +379,18 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="edtRua2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="edtIcms" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="edtBairro3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="edtOutrosImpostos" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtRua3" min="-2" max="-2" attributes="0"/>
+                              <Component id="edtIpi" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -433,12 +403,9 @@
                 <Property name="text" type="java.lang.String" value="ICMS %"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtRua2">
+            <Component class="javax.swing.JTextField" name="edtIcms">
             </Component>
-            <Component class="javax.swing.JTextField" name="edtBairro3">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtBairro3ActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="edtOutrosImpostos">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -450,7 +417,7 @@
                 <Property name="text" type="java.lang.String" value="IPI %"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="edtRua3">
+            <Component class="javax.swing.JTextField" name="edtIpi">
             </Component>
           </SubComponents>
         </Container>

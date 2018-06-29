@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pkgInterface;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import util.ConexaoBD;
@@ -18,18 +11,9 @@ import util.ConexaoBD;
  */
 public class CadastroDeFornecedor extends javax.swing.JFrame {
     
-    private Connection conexao = null;
-    private PreparedStatement pst = null;
-    private ResultSet result = null;
-    
     public CadastroDeFornecedor() {
 
         initComponents();
-        try{
-            conexao = ConexaoBD.conectaBD();
-        } catch(ClassNotFoundException e){
-            System.out.println("Classe não encontrada !");
-        }
         
     }
 
@@ -43,17 +27,16 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         edtNome = new javax.swing.JTextField();
-        edtCnpj = new javax.swing.JTextField();
-        edtTelefone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        edtInscricaoEstadual = new javax.swing.JTextField();
+        edtCnpj = new javax.swing.JFormattedTextField();
+        edtInscricaoEstadual = new javax.swing.JFormattedTextField();
+        edtTelefone = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         edtRua = new javax.swing.JTextField();
-        edtCep = new javax.swing.JTextField();
         edtCidade = new javax.swing.JTextField();
         edtBairro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -61,11 +44,12 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
         cmbEstado = new javax.swing.JComboBox<>();
         edtNumero = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        edtCep = new javax.swing.JFormattedTextField();
         btnCadastrar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,6 +66,24 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
 
         jLabel12.setText("Inscrição Estadual");
 
+        try {
+            edtCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            edtInscricaoEstadual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            edtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -95,16 +97,20 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(21, 21, 21)
+                            .addComponent(jLabel3)
+                            .addComponent(edtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(edtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(edtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(edtInscricaoEstadual))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(111, 111, 111))
+                            .addComponent(edtTelefone))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -117,14 +123,14 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(edtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel12))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -145,6 +151,12 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
 
         jLabel11.setText("Número");
 
+        try {
+            edtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -156,12 +168,16 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(edtRua)
                     .addComponent(edtCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(edtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(edtCep)))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +213,9 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
                         .addComponent(jLabel10)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -280,27 +296,24 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        limparCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
     
     private void cadastrar(){
-        String sql = "INSERT INTO FORNECEDOR(nome,cnpj,telefone,endereco,ie) VALUES (?,?,?,?,?)";
-        int cadastro = 0;
-        try{
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, edtNome.getText());
-            pst.setString(2, edtCnpj.getText());
-            pst.setString(5, edtInscricaoEstadual.getText());
-            pst.setString(3, edtTelefone.getText());
-            String endereco = "";
+        String endereco = "";
             endereco = endereco.concat(edtRua.getText()+", "+edtNumero.getText()+", "+edtBairro.getText()+", "+edtCidade.getText()
                                         +", "+edtCep.getText()+", "+(String)cmbEstado.getSelectedItem());
-            pst.setString(4, endereco);
-            cadastro = pst.executeUpdate();
+        String[]valores = {edtNome.getText(),edtCnpj.getText(),edtTelefone.getText(),endereco,edtInscricaoEstadual.getText()};
+        String sql = "INSERT INTO FORNECEDOR(nome,cnpj,telefone,endereco,ie)" + ConexaoBD.valuesInsertion(valores);
+        ConexaoBD conexao = new ConexaoBD();
+        conexao.conectar();
+        int cadastro;
+        try{
+            cadastro = conexao.manipulaBD(sql);
             if(cadastro > 0){
                 JOptionPane.showMessageDialog(null, "FORNECEDOR CADASTRADO COM SUCESSO !","Info",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -308,14 +321,37 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR FORNECEDOR !","Info",JOptionPane.ERROR_MESSAGE);
                 System.out.println("ELSE");
             }
-            
-            
-        }catch(SQLException e){
+            conexao.desconectar();
+        }
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR FORNECEDOR", "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }
-   
+    
+    private void limparCampos(){
+        edtNome.setText("");
+        edtTelefone.setText("");
+        edtInscricaoEstadual.setText("");
+        edtCnpj.setText("");
+        edtRua.setText("");
+        edtBairro.setText("");
+        edtCidade.setText("");
+        edtCep.setText("");
+        edtNumero.setText("");
+        cmbEstado.setSelectedIndex(0);
+    }
+    
+    @Override
+    public void dispose() {
+        int sair = JOptionPane.showConfirmDialog(null, "DESEJA REALMENTE SAIR DO CADASTRO ?",
+                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(sair == JOptionPane.YES_OPTION){
+            super.dispose();
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -355,14 +391,14 @@ public class CadastroDeFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JTextField edtBairro;
-    private javax.swing.JTextField edtCep;
+    private javax.swing.JFormattedTextField edtCep;
     private javax.swing.JTextField edtCidade;
-    private javax.swing.JTextField edtCnpj;
-    private javax.swing.JTextField edtInscricaoEstadual;
+    private javax.swing.JFormattedTextField edtCnpj;
+    private javax.swing.JFormattedTextField edtInscricaoEstadual;
     private javax.swing.JTextField edtNome;
     private javax.swing.JTextField edtNumero;
     private javax.swing.JTextField edtRua;
-    private javax.swing.JTextField edtTelefone;
+    private javax.swing.JFormattedTextField edtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
