@@ -1,12 +1,7 @@
 
 package pkgInterface;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.ConexaoBD;
 
@@ -321,6 +316,7 @@ public class CadastroDeCliente extends javax.swing.JFrame {
         conexao.desconectar();
         
         }catch(SQLException e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR CLIENTE", "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
         }
         
