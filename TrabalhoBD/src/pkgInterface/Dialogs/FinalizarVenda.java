@@ -5,6 +5,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import util.Cliente;
 
 /**
@@ -35,7 +36,7 @@ public class FinalizarVenda extends javax.swing.JPanel {
         rgModoDeBusca = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         cmbFormaDePagamento = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        lblValorTotal = new javax.swing.JLabel();
         btnConfirma = new javax.swing.JButton();
         painelCliente = new javax.swing.JPanel();
         edtCodigoDoCliente = new javax.swing.JTextField();
@@ -49,8 +50,8 @@ public class FinalizarVenda extends javax.swing.JPanel {
 
         cmbFormaDePagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Dinheiro", "Cartão", "Venda à prazo" }));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("R$ 120,00");
+        lblValorTotal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblValorTotal.setText("R$ 120,00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,7 +61,7 @@ public class FinalizarVenda extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(cmbFormaDePagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblValorTotal)
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -69,7 +70,7 @@ public class FinalizarVenda extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbFormaDePagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblValorTotal))
                 .addGap(64, 64, 64))
         );
 
@@ -199,12 +200,29 @@ public class FinalizarVenda extends javax.swing.JPanel {
                     btnPesquisar.setEnabled(true);
                     lblCodCliente.setEnabled(true);
                     lblNomeCliente.setEnabled(true);
-                } else{
+                    btnConfirma.setEnabled(false);
+                } else if(cmbFormaDePagamento.getSelectedIndex() == MODO_CARTAO || cmbFormaDePagamento.getSelectedIndex() == MODO_DINHEIRO){
+                          painelCliente.setEnabled(false);
+                          edtCodigoDoCliente.setText("");
+                          btnPesquisar.setEnabled(false);
+                          edtNomeDoCliente.setText("");
+                          btnConfirma.setEnabled(true);
+                          lblCodCliente.setEnabled(false);
+                          lblNomeCliente.setEnabled(false);
+                          cliente = null;
+                }
+                else {
                     painelCliente.setEnabled(false);
+                    edtCodigoDoCliente.setText("");
                     btnPesquisar.setEnabled(false);
+                    edtNomeDoCliente.setText("");
+                    btnConfirma.setEnabled(true);
                     lblCodCliente.setEnabled(false);
                     lblNomeCliente.setEnabled(false);
+                    cliente = null;
+                    btnConfirma.setEnabled(false);
                 }
+                        
             }
         });
     }
@@ -219,7 +237,6 @@ public class FinalizarVenda extends javax.swing.JPanel {
         edtNomeDoCliente.setText(cliente.getNome());
         edtNomeDoCliente.setEnabled(true);
         btnConfirma.setEnabled(true);
-        
     }
 
     public JButton getBtnConfirma() {
@@ -245,6 +262,15 @@ public class FinalizarVenda extends javax.swing.JPanel {
     public void setCmbFormaDePagamento(JComboBox<String> cmbFormaDePagamento) {
         this.cmbFormaDePagamento = cmbFormaDePagamento;
     }
+
+    public JLabel getLblValorTotal() {
+        return lblValorTotal;
+    }
+
+    public void setLblValorTotal(JLabel lblValorTotal) {
+        this.lblValorTotal = lblValorTotal;
+    }
+    
     
     
     
@@ -261,10 +287,10 @@ public class FinalizarVenda extends javax.swing.JPanel {
     private javax.swing.JTextField edtCodigoDoCliente;
     private javax.swing.JTextField edtNomeDoCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCodCliente;
     private javax.swing.JLabel lblNomeCliente;
+    private javax.swing.JLabel lblValorTotal;
     private javax.swing.JPanel painelCliente;
     private javax.swing.ButtonGroup rgModoDeBusca;
     // End of variables declaration//GEN-END:variables

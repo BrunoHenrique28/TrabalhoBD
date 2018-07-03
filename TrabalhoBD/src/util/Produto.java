@@ -14,11 +14,11 @@ public class Produto {
     private double icms;
     private double ipi;
     private double outrosImpostos;
-    private double estoque;
-    private double estoqueMinimo;
-    private double estoqueMaximo;
+    private int estoque;
+    private int estoqueMinimo;
+    private int estoqueMaximo;
 
-    public Produto(int codigo, String descricao, double valorCusto, double lucro, double icms, double ipi, double outrosImpostos, double estoque, double estoqueMinimo, double estoqueMaximo) {
+    public Produto(int codigo, String descricao, double valorCusto, double lucro, double icms, double ipi, double outrosImpostos, int estoque, int estoqueMinimo, int estoqueMaximo) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.valorCusto = valorCusto;
@@ -87,30 +87,34 @@ public class Produto {
         this.outrosImpostos = outrosImpostos;
     }
 
-    public double getEstoque() {
+    public int getEstoque() {
         return estoque;
     }
 
-    public void setEstoque(double estoque) {
+    public void setEstoque(int estoque) {
         this.estoque = estoque;
     }
 
-    public double getEstoqueMinimo() {
+    public int getEstoqueMinimo() {
         return estoqueMinimo;
     }
 
-    public void setEstoqueMinimo(double estoqueMinimo) {
+    public void setEstoqueMinimo(int estoqueMinimo) {
         this.estoqueMinimo = estoqueMinimo;
     }
 
-    public double getEstoqueMaximo() {
+    public int getEstoqueMaximo() {
         return estoqueMaximo;
     }
 
-    public void setEstoqueMaximo(double estoqueMaximo) {
+    public void setEstoqueMaximo(int estoqueMaximo) {
         this.estoqueMaximo = estoqueMaximo;
     }
     
+    public double precoRevenda(){
+        double precoVenda = valorCusto + valorCusto*(lucro+icms+ipi+outrosImpostos);
+        return precoVenda;
+    }
     
     
 }
