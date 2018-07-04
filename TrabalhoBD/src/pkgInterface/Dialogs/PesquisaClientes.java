@@ -58,7 +58,7 @@ public class PesquisaClientes extends javax.swing.JPanel {
         rbCodigo.setText("Código");
 
         gbPesquisa.add(rbNome);
-        rbNome.setText("Descrição");
+        rbNome.setText("Nome");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
